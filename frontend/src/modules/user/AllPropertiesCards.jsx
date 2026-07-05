@@ -111,7 +111,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                filteredProperties.map((property) => (
                   <Card border="dark" key={property._id} style={{ width: '18rem', marginLeft: 10 }}>
                      <Card.Body>
-                        <Card.Title><img src={`http://localhost:8001${property.propertyImage[0].path}`} alt='photos' /></Card.Title>
+                        <Card.Title><img src={`http://localhost:8001${property.propertyImage[0].path}`} alt='Property' /></Card.Title>
                         <Card.Text>
                            <p style={{ fontWeight: 600 }} className='my-1'>Location:</p> {property.propertyAddress} <br />
                            <p style={{ fontWeight: 600 }} className='my-1'>Property Type:</p> {property.propertyType} <br />
@@ -153,7 +153,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                                                       <Carousel.Item key={idx}>
                                                          <img
                                                             src={`http://localhost:8001${image.path}`}
-                                                            alt={`Image ${idx + 1}`}
+                                                            alt={`Property ${idx + 1}`}
                                                             className="d-block w-100"
                                                          />
                                                       </Carousel.Item>
