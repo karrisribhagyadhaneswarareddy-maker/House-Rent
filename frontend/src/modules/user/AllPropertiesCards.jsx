@@ -144,7 +144,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                 <Card.Title>
                   <img
                     src={`https://house-rent-backend-r585.onrender.com${property.propertyImage[0].path}`}
-                    alt="photos"
+                    alt="property"
                   />
                 </Card.Title>
                 <Card.Text>
@@ -229,7 +229,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                                     <Carousel.Item key={idx}>
                                       <img
                                         src={`https://house-rent-backend-r585.onrender.com${image.path}`}
-                                        alt={`Image ${idx + 1}`}
+                                        alt={`property ${idx + 1}`}
                                         className="d-block w-100"
                                       />
                                     </Carousel.Item>
