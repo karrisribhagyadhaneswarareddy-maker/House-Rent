@@ -115,8 +115,8 @@ Backend (.env)
 
 ```
 PORT=8001
-MONGO_URL=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+MONGO_URL=mongodb_connection_string
+JWT_SECRET=secret_key
 ```
 
 ## Live Demo
