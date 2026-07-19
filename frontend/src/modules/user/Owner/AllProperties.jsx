@@ -92,7 +92,9 @@ const AllProperties = () => {
       formData.append("ownerContact", editingPropertyData.ownerContact);
       formData.append("propertyAmt", editingPropertyData.propertyAmt);
       formData.append("additionalInfo", editingPropertyData.additionalInfo);
-      formData.append("propertyImage", image);
+      if (image) {
+        formData.append("propertyImage", image);
+      }
       formData.append("isAvailable", status);
       const res = await axios.patch(
         `https://house-rent-backend-r585.onrender.com/api/owner/updateproperty/${propertyId}`,
@@ -104,10 +106,12 @@ const AllProperties = () => {
       if (res.data.success) {
         message.success(res.data.message);
         handleClose();
+        getAllProperty();
       }
     } catch (error) {
-      console.log(error);
-      message.error("Failed to save changes");
+      console.log(error.response);
+      console.log(error.response?.data);
+      message.error(error.response?.data?.message || "Failed to save changes");
     }
   };
 
@@ -183,7 +187,12 @@ const AllProperties = () => {
                       <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <Form onSubmit={() => saveChanges(property._id)}>
+                      <Form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          saveChanges(property._id, property.isAvailable);
+                        }}
+                      >
                         <Row className="mb-3">
                           <Form.Group as={Col} md="4">
                             <Form.Group as={Col}>
